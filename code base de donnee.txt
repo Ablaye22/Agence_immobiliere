@@ -1,0 +1,69 @@
+create database agence_immobiliere;
+use agence_immobiliere;
+create table personne(
+    idpers int auto_increment,
+    nom varchar(50),
+    prenom varchar(50),
+    cin int, 
+    tel int, 
+    dateNaissance date,
+    mail varchar(30),
+    constraint pk_pers primary key (idpers),
+    constraint uk_pers unique (mail),
+    );
+    create table proprietaire(
+        idprop int auto_increment,
+        idpers int,
+        constraint pk_pro primary key(idprop),
+        constraint fk_pers_prop foreign key(idpers) references personne(idpers) on delete cascade
+        );
+    create table locataire(
+        idLoc int auto_increment,
+        idpers int,
+        constraint pk_loc primary key(idLoc),
+        constraint fk_loca foreign key(idpers) references personne(idpers) on delete cascade
+        );
+        create table compte_commerciaux(
+            mail varchar(30),
+            password varchar(50),
+            constraint pk_comm primary key (mail, password),
+            constraint fk_com foreign key (mail)  references personne(mail) on delete CASCADE
+            );
+    create table compte_client(
+        mail varchar(30),
+        password varchar(50),
+        constraint pk_cl primary key(mail,password),
+        foreign key (mail) references personne(mail) on delete CASCADE
+        );
+       create table bien(
+           id_bien int auto_increment,
+           id_prop int,
+           nom_bien varchar(60),
+           dim varchar(100),
+           prix real,
+           adresse varchar(150),
+           ville varchar(100),
+           details varchar(1000),
+           image varchar(1000),
+           type varchar(15),
+           idLoc int,
+           constraint pk_bien primary key(id_bien),
+           constraint fk_prop foreign key(id_prop) references proprietaire(idprop)on delete cascade,
+           constraint fk_loc foreign key(idLoc) references locataire(idLoc) on delete set null
+           );
+            create table demand_location(
+            No_demand int auto_increment,
+            idpers int,
+            id_bien int,
+            label_bien varchar(15),
+            reponse int,
+            constraint pk_de_loc primary key(No_demand),
+            constraint fk_de_loc foreign key(idpers) references personne(idpers) on delete cascade,
+            constraint fk_de_loc_bien foreign key(id_bien) references bien(id_bien) 
+	);
+		
+	
+	
+	
+
+  

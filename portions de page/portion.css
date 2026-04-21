@@ -1,0 +1,51 @@
+footer
+{
+    font-size: 30px;
+    font-style: italic;
+    text-align:center;
+    box-shadow: 3px 4px 5px rgb(5, 31, 5);
+    background-color:aqua;
+    margin-top:20px;
+}
+header h1 
+{
+    text-transform:uppercase;
+    font-size: 40px;
+    margin-left:100px;
+    /* color:lime; */
+    text-align:center;
+    /* text-shadow:2px 2px blue; */
+}
+header
+{
+    height:130px;
+    background-color:rgb(138, 228, 228);
+    box-shadow: 30px 10px 5px blue;
+    display: flex;
+    margin-bottom:40px;
+    padding: 15px;
+}
+aside
+{
+    width:300px;
+    font-size:30px;
+    background-color:rgb(138, 228, 228);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border:2px solid black;
+    margin-right:30px;
+    padding:20px;
+}
+#aside_logo
+{
+    margin-left:50px;
+}
+ aside img
+{
+    width: 150px;
+    border-radius:50px;
+}
+
+#logo2
+{
+    margin-left:227px;
+}
